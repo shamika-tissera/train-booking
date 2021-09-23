@@ -45,62 +45,32 @@
                                  <table class="table">
                                     <thead>
                                        <tr>
-                                          <th>Column 1</th>
-                                          <th>Column 2</th>
+                                          <th>Date</th>
+                                          <th>Time</th>
+                                          <th>From</th>
+                                          <th>To</th>
+                                          <th>Cancel</th>
                                        </tr>
                                     </thead>
                                     <tbody>
                                        <tr>
                                           <td>Cell 1</td>
                                           <td>Cell 2</td>
-                                       </tr>
-                                       <tr>
-                                          <td>Cell 3</td>
-                                          <td>Cell 4</td>
-                                       </tr>
-                                    </tbody>
-                                 </table>
-                              </div>
-                              <div class="table-responsive">
-                                 <table class="table">
-                                    <thead>
-                                       <tr>
-                                          <th>Column 1</th>
-                                          <th>Column 2</th>
-                                       </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
                                           <td>Cell 1</td>
+                                          <td>Cell 2</td>
                                           <td>Cell 2</td>
                                        </tr>
                                        <tr>
                                           <td>Cell 3</td>
                                           <td>Cell 4</td>
-                                       </tr>
-                                    </tbody>
-                                 </table>
-                              </div>
-                              <div class="table-responsive">
-                                 <table class="table">
-                                    <thead>
-                                       <tr>
-                                          <th>Column 1</th>
-                                          <th>Column 2</th>
-                                       </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                          <td>Cell 1</td>
-                                          <td>Cell 2</td>
-                                       </tr>
-                                       <tr>
                                           <td>Cell 3</td>
                                           <td>Cell 4</td>
+                                          <td>Cell 2</td>
                                        </tr>
                                     </tbody>
                                  </table>
                               </div>
+                              
                               <button class="btn btn-primary btn-sm" type="submit">New Trip</button>
                            </div>
                         </div>
