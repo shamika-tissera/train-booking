@@ -1,5 +1,16 @@
 <?php
+include("Classes/db.php");
 include("Classes/Ticket.php");
+
+if (isset($_GET['cancel'])){
+    $id = $_GET['cancel'];
+    Ticket::clearDetails($id);
+}
+
+//getting balance of user(needs to pass the user id of logged account)
+$balance_query = 'SELECT `balance` FROM `user` WHERE `nic` = "971834521v"';
+$balance_result = mysqli_query($conn,$balance_query);
+$balance = $balance_result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +35,7 @@ include("Classes/Ticket.php");
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="booking-1.html"><i class="fas fa-table"></i><span>Cancellation</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="Reload.html"><i class="far fa-user-circle"></i><span>Reloads</span></a></li>
@@ -179,7 +190,7 @@ include("Classes/Ticket.php");
                                                         <td><?php echo  $row["date"] ?></td>
                                                         <td><?php echo  $row["time"] ?></td>
                                                         <td>
-                                                            <div class="text-center small"></div><button class="btn btn-primary btn-sm" type="submit">Cancel</button>
+                                                        <a href="index.php?cancel=<?php  echo  $row["id"]  ?>" ><div class="text-center small"></div><button class="btn btn-primary btn-sm" type="submit" >Cancel</button></a>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -204,13 +215,13 @@ include("Classes/Ticket.php");
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-body"><span>$215,000</span>
-                                    <div class="text-center small mt-4"></div><button class="btn btn-primary btn-sm" type="submit">Reload</button>
+                                <div class="card-body"><span>Rs: <?php echo number_format((float)$balance['balance'], 2, '.', '');?></span>
+                                    <a href="./Reload.html"><div class="text-center small mt-4"></div><button class="btn btn-primary btn-sm" type="submit">Reload</button></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>               
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
