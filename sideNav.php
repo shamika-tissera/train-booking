@@ -7,7 +7,7 @@
       <hr class="sidebar-divider my-0">
       <ul class="navbar-nav text-light" id="accordionSidebar">
          <li class="nav-item"><a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-         <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+         <li class="nav-item"><a class="nav-link" href="profile.php"><i class="fas fa-user"></i><span>Profile</span></a></li>
          <li class="nav-item"><a class="nav-link" href="booking-1.html"><i class="fas fa-table"></i><span>Cancellation</span></a></li>
          <li class="nav-item"><a class="nav-link" href="Reload.php"><i class="far fa-user-circle"></i><span>Reloads</span></a></li>
          <li class="nav-item"><a class="nav-link" href="booking-1.php"><i class="fas fa-user-circle"></i><span>Bookings</span></a></li>
