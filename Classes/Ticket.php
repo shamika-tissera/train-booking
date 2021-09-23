@@ -1,9 +1,7 @@
 <?php 
 
-include ('db.php');
-
 class Ticket{
-
+    
     private $ticket_id;
     private $from;
     private $to;
@@ -18,15 +16,17 @@ class Ticket{
         $this->time = $time;
         $this->$date = $date;
     }
-
+    
     public function getDetails(){
+        include ('db.php');
         //return details array
-        $sql = '';
+        $sql = 'SELECT * FROM `trip`';
         return mysqli_query($conn,$sql);
     }
 
-    public function clearDetails(){
-        $sql = 'DELETE FROM booking WHERE some_column = some_value ';
+    public static function clearDetails($id){
+        include ('db.php');
+        $sql = 'DELETE FROM trip WHERE id = $id ';
         if ($conn->query($sql) === TRUE) {
             echo "Record deleted successfully";
           } else {
@@ -36,6 +36,7 @@ class Ticket{
 
 
 }
+
 
 
 

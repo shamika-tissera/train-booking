@@ -1,13 +1,12 @@
 <?php
 
-$servername = "mysql-51512-0.cloudclusters.net";
-$username = "admin";
-$password ="YZ7mSIgV";
-$port = '10177';
+$servername = "localhost";
+$username = "root";
+$password ="";
 $dbname = "ted";
 
 // Create the conncection
-$conn = new mysqli($servername,$port,$username,$password,$dbname);
+$conn = new mysqli($servername,$username,$password,$dbname);
 
 //check connection
 if($conn->connect_error){
