@@ -1,5 +1,5 @@
 <?php
-include("Classes/db.php");
+include("includes/db.php");
 
 $errorBox = array();
 $nicErr = $fristnameErr = $lastnameErr = $telephoneErr = $emailErr = $passwordErr = $cpasswordErr = "";

@@ -2,7 +2,7 @@
 
 use function PHPSTORM_META\type;
 
-include("Classes/db.php");
+include("includes/db.php");
 
 if(isset($_GET['list'])){
     $array = explode("," , $_GET['list']) ;
