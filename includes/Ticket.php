@@ -34,7 +34,7 @@ class Ticket
         $run_delete = mysqli_query($conn, $sql);   
         if ($run_delete) {
             echo "<script>alert('Trip Has been canceled!')</script>";
-           // echo "<script>window.open('index.php','_self')</script>";
+            echo "<script>window.open('index.php?dashboard','_self')</script>";
         }
     }
 }
