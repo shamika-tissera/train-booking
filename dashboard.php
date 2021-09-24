@@ -1,93 +1,4 @@
-<!DOCTYPE html>
-<?php
-include("Classes/db.php");
-$query = "Select seat_id from trip";
-$booked_list_result = mysqli_query($conn, $query);
-$seatset = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48];
-
-//master data about the train block
-$blockid = 1;
-$booked_seatid = 3;
-
-?>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <style>
-        .seat {
-            background-color: #212529;
-        }
-
-        .seat_hover:hover {
-            background-color: #0d6efd;
-        }
-    </style>
-    <script>
-        amount = 0;
-        selectedSeat = [];
-
-        function setEventListner(id) {
-            let item = document.getElementById("seat" + id);
-            item.addEventListener('click', () => {
-                if (item.style.backgroundColor == 'blue') {
-                    item.style.backgroundColor = '#212529';
-                    for (var i = 0; i < selectedSeat.length; i++) {
-
-                        if (selectedSeat[i] === id) {
-
-                            selectedSeat.splice(i, 1);
-                        }
-
-                    }
-                    console.log(selectedSeat);
-                    amount = amount - 14;
-                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount;
-                } else {
-                    item.style.backgroundColor = 'blue';
-                    selectedSeat.push(id);
-                    console.log(selectedSeat);
-                    amount = amount + 14;
-                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount;
-                }
-
-            });
-        }
-
-        function submit(){
-            document.getElementById("hiddenlist").value = selectedSeat.toString();
-            document.getElementById('formsubmit').click();
-        }
-    </script>
-</head>
-
-<body id="page-top">
-    <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="booking-1.html"><i class="fas fa-table"></i><span>Cancellation</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="Reload.html"><i class="far fa-user-circle"></i><span>Reloads</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Bookings</span></a></li>
-                </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
-            </div>
-        </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
+<div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -193,127 +104,72 @@ $booked_seatid = 3;
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Booking</h3>
-                    <div class="col-11 " style="height: 60vh;">
-                        <div class="d-flex flex-column col-12">
-                            <div class="d-flex flex-row col-12">
-                                <?php
-
-                                for ($i = 1; $i <= 12; $i++) {
-
-                                ?>
-
-                                    <div id='seat<?php echo $i ?>' class="flex-col col-1 m-1 seat seat_hover" style="height: 12.5vh;">
-                                        <?php echo $i ?>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Upcoming Trips</h6><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>From</th>
+                                                    <th>To</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                    <th>Cancel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $trip = new Ticket();
+                                                $result = $trip->getDetails();
 
+                                                while ($row = $result->fetch_assoc()) {
+                                                ?><tr>
+                                                        <td><?php echo  $row["ffrom"] ?></td>
+                                                        <td><?php echo  $row["tto"] ?></td>
+                                                        <td><?php echo  $row["date"] ?></td>
+                                                        <td><?php echo  $row["time"] ?></td>
+                                                        <td>
+                                                        <a href="index.php?cancel=<?php  echo  $row["id"]  ?>" ><div class="text-center small"></div><button class="btn btn-primary btn-sm" type="submit" >Cancel</button></a>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
 
-
-                                <?php //html code end
-                                }
-
-                                ?>
+                                        </table>
+                                    </div><button class="btn btn-primary btn-sm" type="submit">New Trip</button>
+                                </div>
                             </div>
-
-                            <!-- second row set -->
-                            <div class="d-flex flex-row col-12">
-                                <?php
-
-                                for ($i = 13; $i <= 24; $i++) {
-                                    //html code start
-                                ?>
-                                    <div id='seat<?php echo $i ?>' class="flex-col  col-1 m-1 seat seat_hover" style="height: 12.5vh;">
-                                        <?php echo $i ?>
-                                    </div>
-
-
-
-
-                                <?php //html code end
-                                }
-
-                                ?>
-                            </div>
-
                         </div>
-                        <div class="d-flex flex-column col-12 mt-4">
-                            <div class="d-flex flex-row col-12">
-                                <?php
-
-                                for ($i = 25; $i <= 36; $i++) {
-                                    //html code start
-                                ?>
-
-                                    <div id='seat<?php echo $i ?>' class="flex-col col-1 m-1 seat seat_hover " style="height: 12.5vh;">
-                                        <?php echo $i ?>
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Balance</h6><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
                                     </div>
-
-
-
-                                <?php //html code end
-                                }
-
-                                ?>
+                                </div>
+                                <div class="card-body"><span>Rs: <?php echo number_format((float)$balance['balance'], 2, '.', '');?></span>
+                                    <a href="./Reload.html"><div class="text-center small mt-4"></div><button class="btn btn-primary btn-sm" type="submit">Reload</button></a>
+                                </div>
                             </div>
-
-                            <!-- second row set -->
-                            <div class="d-flex flex-row col-12">
-                                <?php
-
-                                for ($i = 37; $i <= 48; $i++) {
-                                    //html code start
-                                ?>
-                                    <div id='seat<?php echo $i ?>' class="flex-col col-1 m-1 seat seat_hover" style="height: 12.5vh;">
-                                        <?php echo $i ?>
-                                    </div>
-
-
-
-                                <?php //html code end
-                                }
-
-                                while ($id = $booked_list_result->fetch_assoc()) {
-                                    echo "<script>var element = document.getElementById('seat" . $id['seat_id'] . "');
-                                element.style.color = 'red';
-                                element.classList.remove('seat_hover');
-                                </script>";
-                                    $seatset = array_diff($seatset, $id);
-                                }
-
-                                foreach ($seatset as $seat) {
-                                    echo "<script>setEventListner(" . $seat . ")</script>";
-                                }
-
-                                ?>
-                            </div>
-
                         </div>
                     </div>
-                    <div class=" d-flex flex-row align-items-center mt-2">
-                        <span id='amount' class="align-middle ms-auto "></span>
-                        <script>
-                            document.getElementById('amount').innerHTML = "Total = Rs:" + amount
-                        </script>
-                        <form  method="GET" action="payment.php">
-                            <input id="hiddenlist" name="list" hidden="true"  type="text" value="">
-                            <button type="submit" hidden="true"  id="formsubmit">Pay</button>
-                        </form>
-                        <button type="submit" onclick="submit()" class="btn btn-primary ms-4">Pay</button>
-                         </div>
-
-                </div>
-
-
+                </div>               
             </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
-                </div>
-            </footer>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
-</body>
-
-</html>
