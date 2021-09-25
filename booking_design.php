@@ -153,6 +153,7 @@ $booked_seatid = 3;
         <form method="GET" action="payment.php">
             <input id="hiddenlist" name="list" hidden="true" type="text" value="">
             <input id="hiddenamount" name="amount" hidden="true" type="text" value="">
+            <input id="hiddenfrom" name="id" hidden="true" type="text" value="<?php echo $train_id ?>">
             <button type="submit" hidden="true" id="formsubmit">Pay</button>
         </form>
         <button type="submit" onclick="submit()" class="btn btn-primary ms-4">Pay</button>

@@ -17,7 +17,8 @@ while ($result = mysqli_fetch_assoc($resultset)) {
    <div class="card-body">
       <div class="row">
          <form method="GET">
-            <div class="col">
+            <div class=" d-flex flex-row">
+            <div class="col me-4">
                <label class="form-label">From:</label>
                <div class="dropdown">
 
@@ -27,7 +28,7 @@ while ($result = mysqli_fetch_assoc($resultset)) {
                   <label id="output1"></label>
                </div>
             </div>
-            <div class="col">
+            <div class="col ms-4">
                <label class="form-label">To:</label>
                <div class="dropdown">
                   <select class="form-select " name="end" aria-label="Default select example" id="list2" onchange="getValueTwo();">
@@ -36,9 +37,18 @@ while ($result = mysqli_fetch_assoc($resultset)) {
                   <label id="output2"></label>
                </div>
             </div>
+            </div>
             <div class="col">
-               <button class="btn btn-success" name="search" type="submit" id="searchBtn">Search</button>
-         </form>
+            <div class="col-3">
+               <label class="form-label">To:</label>
+               <div class="dropdown">
+                  <div class="d-flex flex-row">
+                  <input class="form-select " type="date" name="date"/>
+                  <label id="output2"></label><button class="btn btn-success ms-2 " name="search" type="submit" id="searchBtn">Search</button>
+                  </div>
+               </div>
+            </div>
+               </form>
       </div>
    </div>
 </div>
