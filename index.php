@@ -26,7 +26,9 @@
    <div id="wrapper">
 
 
-      <?php include "./sideNav.php";
+      <?php
+      session_start();
+      include "./sideNav.php";
       include ("includes/db.php");
       include("includes/Ticket.php");
       
@@ -42,6 +44,7 @@
             <?php include "./header.php" ?>
 
             <?php
+            $trainlist = null;
             if (isset($_GET['dashboard'])) {
                include("dashboard.php");
             }
@@ -56,11 +59,13 @@
             if (isset($_GET['booking'])) {
                include("booking-1.php");
             }
+            
             if (isset($_GET['start'])) {
          
                $start = $_GET['start'];
                $end = $_GET['end'];
                $sql = "SELECT `train_id`, `Train_Name`, `ffrom`, `Departure`, `tto`, `Arrival` FROM `schedule` WHERE ffrom = '$start' AND tto = '$end';";
+               
                $trainlist = mysqli_query($conn, $sql);
                include("booking-1.php");
             }

@@ -2,12 +2,12 @@
 
 include("includes/db.php");
 // dropdown list item fetch from database
-$query = "select sid, stationname from station";
+$query = "SELECT DISTINCT(ffrom) FROM train; ";
 $resultset = mysqli_query($conn, $query);
 
 $station_list = "";
 while ($result = mysqli_fetch_assoc($resultset)) {
-   $station_list .= "<option value = \"{$result['stationname']}\" >{$result['stationname']}</option>";
+   $station_list .= "<option value = \"{$result['ffrom']}\" >{$result['ffrom']}</option>";
 }
 ?>
 <div class="card shadow">
@@ -51,17 +51,20 @@ while ($result = mysqli_fetch_assoc($resultset)) {
                <tr>
                   <th>Train ID</th>
                   <th>Start</th>
-                  <th>End</th>
+                  <th>Stop</th>
+                  <th>Departure</th>
                   <th>Booking</th>
                </tr>
             </thead>
             <tbody>
 
                <?php
+               if($trainlist != null){
                while ($train = $trainlist->fetch_assoc()) {
                ?> <tr>
                      <td> <?php echo $train['Train_Name'] ?> </td>
                      <td> <?php echo $train['ffrom'] ?> </td>
+                     <td> <?php echo $train['tto'] ?> </td>
                      <td> <?php echo $train['Departure'] ?> </td>
                      <td>
                         <a href="index.php?book=<?php echo  $train["train_id"] ?>">
@@ -69,7 +72,7 @@ while ($result = mysqli_fetch_assoc($resultset)) {
                         </a>
                      </td>
                   </tr>
-               <?php } ?>
+               <?php }} ?>
             </tbody>
 
             <?php
@@ -79,9 +82,9 @@ while ($result = mysqli_fetch_assoc($resultset)) {
 
             while ($rowtrain = mysqli_fetch_array($runtrain)) {
 
-               $trainid = $rowtrain['trainid'];
-               $start = $rowtrain['start'];
-               $end = $rowtrain['end'];
+               $trainid = $rowtrain['train_id'];
+               $start = $rowtrain['ffrom'];
+               $end = $rowtrain['tto'];
             }
             echo "<script>";
             echo "var records = [";
