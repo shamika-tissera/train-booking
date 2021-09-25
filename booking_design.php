@@ -30,13 +30,13 @@ $booked_seatid = 3;
                     }
                     console.log(selectedSeat);
                     amount = amount - 14;
-                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount;
+                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount +".00";
                 } else {
                     item.style.backgroundColor = 'blue';
                     selectedSeat.push(id);
                     console.log(selectedSeat);
                     amount = amount + 14;
-                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount;
+                    document.getElementById('amount').innerHTML = "Total = Rs:" + amount +".00";
                 }
 
             });
@@ -148,7 +148,7 @@ $booked_seatid = 3;
     <div class=" d-flex flex-row align-items-center mt-2">
         <span id='amount' class="align-middle ms-auto "></span>
         <script>
-            document.getElementById('amount').innerHTML = "Total = Rs:" + amount
+            document.getElementById('amount').innerHTML = "Total = Rs:" + amount +".00";
         </script>
         <form method="GET" action="payment.php">
             <input id="hiddenlist" name="list" hidden="true" type="text" value="">

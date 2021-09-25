@@ -102,7 +102,7 @@ if (isset($_POST['adduser'])) {
       <div class="card-body p-0">
         <div class="row">
           <div class="col-lg-5 d-none d-lg-flex">
-            <div class="flex-grow-1 bg-register-image" style="background-image: url('assets/img/dogs/image2.jpeg')"></div>
+            <div class="flex-grow-1 bg-register-image" style="background-image: url('images/regform.jpg');background-size: cover; background-position-x: 0px;"></div>
           </div>
           <div class="col-lg-7">
             <div class="p-5">
