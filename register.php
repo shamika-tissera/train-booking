@@ -70,7 +70,7 @@ if (isset($_POST['adduser'])) {
 
       if ($runuser) {
         echo "<script> alert('User added successfully ')</script>";
-        //echo "<script> window.open('staff.php ','_self')</script>";
+        echo "<script> window.open('login.php ','_self')</script>";
       }
     } else {
       echo "<script> alert('Password did not match ')</script>";
@@ -145,6 +145,9 @@ if (isset($_POST['adduser'])) {
                 <button class="btn btn-primary d-block btn-user w-100" name="adduser" type="submit">
                   Register Account
                 </button>
+                <div class="d-flex mt-2">
+                      <p class=" ms-auto">Already have an account? &nbsp;</p><a  class="me-2" href="login.php">Login</a>
+                    </div>
               </form>
             </div>
           </div>

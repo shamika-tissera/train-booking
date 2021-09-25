@@ -44,6 +44,10 @@ include("includes/db.php");
                     <button class="btn btn-primary d-block btn-user w-100" name="login" type="submit">
                       Login
                     </button>
+                    <div class="d-flex mt-2">
+                      <p class=" ms-auto">Don't have an account? &nbsp;</p><a  class="me-2" href="register.php">Register</a>
+                    </div>
+                    
 
                   </form>
 

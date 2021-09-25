@@ -86,7 +86,7 @@ $balance = $balance_result->fetch_assoc();
                         
                     </div>
                     <div class="card-body"><span>Rs: <?php echo number_format((float)$balance['balance'], 2, '.', ''); ?></span>
-                        <a href="./Reload.html">
+                        <a href="index.php?reload">
                             <div class="text-center small mt-4"></div><button class="btn btn-primary btn-sm" type="submit">Reload</button>
                         </a>
                     </div>
