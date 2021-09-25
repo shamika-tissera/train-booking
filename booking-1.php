@@ -40,7 +40,7 @@ while ($result = mysqli_fetch_assoc($resultset)) {
             </div>
             <div class="col">
             <div class="col-3">
-               <label class="form-label">To:</label>
+               <label class="form-label">Date:</label>
                <div class="dropdown">
                   <div class="d-flex flex-row">
                   <input class="form-select " type="date" name="date"/>
